@@ -6,9 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
+
 
 # ==============================
 # CONFIGURAÇÕES INICIAIS
@@ -93,9 +91,6 @@ if uploaded_file is not None:
     ax.set_title('Boxplot - Quantidade de Diárias')
     st.pyplot(fig)
 
-    # Correlação Receita x Diárias
-    corr_receita_diarias = Relatorio['Valor'].corr(Relatorio['Quantidade diarias '])
-    st.write(f"**Correlação entre Receita Bruta e Quantidade de Diárias:** {corr_receita_diarias:.2f}")
 
     fig, ax = plt.subplots(figsize=(8, 6))
     sns.regplot(x='Quantidade diarias ', y='Valor', data=Relatorio,
